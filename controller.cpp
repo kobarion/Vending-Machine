@@ -1,198 +1,218 @@
-#include <iostream>
+/*
+    File: controller.cpp
+    Implementation file for class Controller
 
-using namespace std;
+    UFSC - EEL7323 - C++ Programming for Embedded Systems
 
-class Controlador {
-    int state;
-    public:
-        Controlador();
-        ~Controlador();
-        void nextState(string input);
-};
+    Project: Vending Machine
+    Description: Class Controller is the definition for a controller 
+    of the vending machine full state machine.  
 
-Controlador::Controlador(){
+    Author: Rodrigo Kobashikawa Rosa <rodrigokrosa@gmail.com>
+    Github: https://github.com/kobarion/Vending-Machine
+
+    Last changed in: 03/11/2018
+*/
+
+#include "controller.h"
+
+Controller::Controller(){
     state = 0;
+
+    #ifdef sysX86
+    system = new x86;
+    #endif
+
+    #ifdef sysRPi
+    system = new RPi;
+    #endif
 }
 
-Controlador::~Controlador(){}
+Controller::~Controller(){
+    delete system;
+}
 
-void Controlador::nextState(string input){
-	
+void Controller::nextState(){
+
+    system -> displayMessage("\n1. M025    2. M050    3. M100\n4. DEV    5. ETIRPS    6. MEETS\n");
+
+    input = system -> inputSystem();
+
     switch(state){
         case 0: 
             if (input == "nada") state = 0;
             else if (input == "dev") {
-                cout << "Devolve 0 creditos." << endl;
+                system -> displayMessage("Devolve 0 creditos.");
                 state = 0;
             }
             else if (input == "etirps") {
-                cout << "Creditos insuficientes." << endl;
+                system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "meets"){
-            	cout << "Creditos insuficientes." << endl;
+            	system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "m025") {
-                cout << "25 creditos." << endl;
+                system -> displayMessage("25 creditos."); 
                 state = 25;
             }
             else if (input == "m050") {
-                cout << "50 creditos." << endl;
+                system -> displayMessage("50 creditos."); 
                 state = 50;
             }
             else if (input == "m100") {
-                cout << "100 creditos." << endl;
+                system -> displayMessage("100 creditos."); 
                 state = 100;
             }
             break;
         case 25:
             if (input == "nada") state = 25;
             else if (input == "dev") {
-                cout << "Devolve 25 creditos." << endl;
+                system -> displayMessage("Devolve 25 creditos."); 
                 state = 0;
             }
             else if (input == "etirps") {
-                cout << "Creditos insuficientes." << endl;
+                system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "meets"){
-            	cout << "Creditos insuficientes." << endl;
+            	system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "m025"){
-                cout << "50 creditos." << endl;
+                system -> displayMessage("50 creditos."); 
                 state = 50;
             }
             else if (input == "m050") {
-                cout << "75 creditos." << endl;
+                system -> displayMessage("75 creditos."); 
                 state = 75;
             }
             else if (input == "m100") {
-                cout << "125 creditos." << endl;
+                system -> displayMessage("125 creditos."); 
                 state = 125;
             }
             break;
         case 50:
             if (input == "nada") state = 50;
             else if (input == "dev") {
-                cout << "Devolve 50 creditos." << endl;
+                system -> displayMessage("Devolve 50 creditos."); 
                 state = 0;
             }
             else if (input == "etirps") {
-                cout << "Creditos insuficientes." << endl;
+                system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "meets"){
-            	cout << "Creditos insuficientes." << endl;
+            	system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "m025") {
-                cout << "75 creditos." << endl;
+                system -> displayMessage("75 creditos."); 
                 state = 75;
             }
             else if (input == "m050") {
-                cout << "100 creditos." << endl;
+                system -> displayMessage("100 creditos."); 
                 state = 100;
             }
             else if (input == "m100") {
-                cout << "150 creditos." << endl;
+                system -> displayMessage("150 creditos."); 
                 state = 150;
             }
             break;
         case 75:
             if (input == "nada") state = 75;
             else if (input == "dev") {
-                cout << "Devolve 75 creditos." << endl;
+                system -> displayMessage("Devolve 75 creditos."); 
                 state = 0;
             }
             else if (input == "etirps") {
-                cout << "Creditos insuficientes." << endl;
+                system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "meets"){
-            	cout << "Creditos insuficientes." << endl;
+            	system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "m025") {
-                cout << "100 creditos." << endl;
+                system -> displayMessage("100 creditos."); 
                 state = 100;
             }
             else if (input == "m050") {
-                cout << "125 creditos." << endl;
+                system -> displayMessage("125 creditos."); 
                 state = 125;
             }
             else if (input == "m100") {
-                cout << "150 creditos. Devolve 25." << endl;
+                system -> displayMessage("150 creditos. Devolve 25."); 
                 state = 150;
             }      
             break;
         case 100:
             if (input == "nada") state = 100;
             else if (input == "dev") {
-            	cout << "Devolve 100 creditos." << endl;
+            	system -> displayMessage("Devolve 100 creditos."); 
                 state = 0;
             }
             else if (input == "etirps") {
-                cout << "Creditos insuficientes." << endl;
+                system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "meets"){
-            	cout << "Creditos insuficientes." << endl;
+            	system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "m025") {
-            	cout << "125 creditos." << endl;
+            	system -> displayMessage("125 creditos."); 
             	state = 125;
             }
             else if (input == "m050") {
-            	cout << "150 creditos." << endl;
+            	system -> displayMessage("150 creditos."); 
             	state = 150;
             }
             else if (input == "m100") {
-                cout << "150 creditos. Devolve 50." << endl;
+                system -> displayMessage("150 creditos. Devolve 50."); 
                 state = 150;
             }
             break;
         case 125:
             if (input == "nada") state = 125;
             else if (input == "dev") {
-            	cout << "Devolve 125 creditos." << endl;
+            	system -> displayMessage("Devolve 125 creditos."); 
                 state = 0;
             }
             else if (input == "etirps") {
-                cout << "Creditos insuficientes." << endl;
+                system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "meets"){
-            	cout << "Creditos insuficientes." << endl;
+            	system -> displayMessage("Creditos insuficientes."); 
             }
             else if (input == "m025") {
-            	cout << "150 creditos." << endl;
+            	system -> displayMessage("150 creditos."); 
             	state = 150;
             }
             else if (input == "m050") {
-                cout << "150 creditos. Devolve 25." << endl;            	
+                system -> displayMessage("150 creditos. Devolve 25.");             	
                 state = 150;
             }
             else if (input == "m100") {
-                cout << "150 creditos. Devolve 50." << endl;
+                system -> displayMessage("150 creditos. Devolve 50."); 
                 state = 150;
             }
             break;
         case 150:
             if (input == "nada") state = 150;
             else if (input == "dev") {
-            	cout << "Devolve 150 creditos." << endl;            	
+            	system -> displayMessage("Devolve 150 creditos.");           	
                 state = 0;
             }
             else if (input == "meets") {
-            	cout << "-MEET-" << endl;
+            	system -> displayMessage("-MEET-");
                 state = 0;
             }
             else if (input == "etirps") {
-            	cout << "-ETIRPS-" << endl;
+            	system -> displayMessage("-ETIRPS-");
                 state = 0;
             }            
             else if (input == "m025") {
-            	cout << "150 creditos. Devolve 25." << endl;
+            	system -> displayMessage("150 creditos. Devolve 25."); 
                 state = 150;
             }
             else if (input == "m050") {
-            	cout << "150 creditos. Devolve 50." << endl;            	
+            	system -> displayMessage("150 creditos. Devolve 50.");             	
                 state = 150;
             }
             else if (input == "m100") {
-            	cout << "150 creditos. Devolve 100." << endl;
+            	system -> displayMessage("150 creditos. Devolve 100."); 
                 state = 150;
             }
             break;
