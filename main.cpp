@@ -18,7 +18,7 @@ int main(){
 
     	stateInput = inputDecoder(input);
 
-	    vendingMachine.nextState(stateInput);
+	vendingMachine.nextState(stateInput);
     }
 }
 
