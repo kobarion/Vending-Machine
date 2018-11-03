@@ -6,15 +6,15 @@ string inputDecoder(int i);
 
 int main(){
 
-	int input;
-	string stateInput;
+    int input;
+    string stateInput;
     Controlador vendingMachine;
 
     while(1){
     	cout << "\n1. M025" << endl << "2. M050" << endl << "3. M100" << endl;
     	cout << "4. DEV" << endl << "5. ETIRPS" << endl << "6. MEET\n" << endl;
     	cout << "input: ";
-		cin >> input;
+	cin >> input;
 
     	stateInput = inputDecoder(input);
 
