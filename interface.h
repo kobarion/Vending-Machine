@@ -18,6 +18,9 @@
 using namespace std;
 
 class Interface {
+	protected:
+		int inputChoice;
+		string input;
 	public:
 		// template?
 		virtual void displayMessage(string) = 0;
@@ -26,8 +29,6 @@ class Interface {
 };
 
 class RPi : public Interface {
-	int inputRPi;
-	string input;
 	public:
 		void displayMessage(string);
 		string inputSystem();
@@ -35,8 +36,6 @@ class RPi : public Interface {
 };
 
 class x86 : public Interface {
-	int inputx86;
-	string input;
 	public:
 		void displayMessage(string);
 		string inputSystem();

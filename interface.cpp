@@ -13,6 +13,7 @@
 
 	Last changed in: 03/11/2018
 */
+
 #include <iostream>
 #include "interface.h"
 
@@ -23,8 +24,8 @@ void x86::displayMessage(string msg){
 }
 
 string x86::inputSystem(){
-	cin >> inputx86;
-	switch(inputx86){
+	cin >> inputChoice;
+	switch(inputChoice){
 		case 1:
 			input = "m025";
 			break;
@@ -55,8 +56,8 @@ void RPi::displayMessage(string msg){
 }
 
 string RPi::inputSystem(){
-	cin >> inputRPi;
-	switch(inputRPi){
+	cin >> inputChoice;
+	switch(inputChoice){
 		case 1:
 			input = "m025";
 			break;
