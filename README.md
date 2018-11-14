@@ -17,4 +17,8 @@ EEL7323 - C++ for embedded systems - final project.
 
 ## Diagrama de Classes
 
-![alt text](https://github.com/kobarion/Vending-Machine/blob/master/images/classdiagramv1.png "class diagram")
+<!-- ![alt text](https://github.com/kobarion/Vending-Machine/blob/master/images/classdiagramv1.png "class diagram") -->
+
+<p align="center"> 
+<img src="https://github.com/kobarion/Vending-Machine/blob/master/images/classdiagramv1.png">
+</p>
