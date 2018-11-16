@@ -15,7 +15,7 @@
 */
 
 #include <iostream>
-#include "interface.cpp"
+#include "../src/interface.cpp"
 using namespace std;
 
 class Controller {
