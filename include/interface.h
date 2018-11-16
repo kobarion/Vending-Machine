@@ -35,7 +35,7 @@ class RPi : public Interface {
 		// void output();
 };
 
-class x86 : public Interface {
+class PC : public Interface {
 	public:
 		void displayMessage(string);
 		string inputSystem();

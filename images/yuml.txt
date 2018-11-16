@@ -1,0 +1,19 @@
+%2F%2F Cool Class Diagram, [(Abstract);Interface|＃inputChoice:int;＃input:string|(abs.)+displayMessage();(abs.)+inputSystem()],
+
+[(Abstract);Interface]^-[PC|+displayMessage();+inputSystem()],
+
+[(Abstract);Interface]^-[RPi|+displayMessage();+inputSystem()],
+
+[Controller|-state:int;-input:string;-system:Interface*|+Controller();+~Controller();+nextState()]<>->[(Abstract) Interface],
+
+[List|-head:Node*|+List();+~List;+insert();+readFirst();+readHead();+remove();+listAll();],
+
+[Advertisement|-queue1:List;-queue2:List;-system:Interface*|+addAD();+showAD();+removeAD();],
+
+[List]<-<>[Advertisement],
+
+[Node|-val:string;-next:Node*|+Node();+getVal();+getNext();+setVal();+setNext();],
+
+[Node]<-<>[List],
+
+[Advertisement]<>->[(Abstract) Interface|]

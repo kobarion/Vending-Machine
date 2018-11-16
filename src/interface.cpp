@@ -19,11 +19,11 @@
 
 using namespace std;
 
-void x86::displayMessage(string msg){
-	cout << msg << " - x86" << endl;
+void PC::displayMessage(string msg){
+	cout << msg << " - PC" << endl;
 }
 
-string x86::inputSystem(){
+string PC::inputSystem(){
 	cin >> inputChoice;
 	switch(inputChoice){
 		case 1:
