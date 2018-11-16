@@ -17,7 +17,7 @@
  #define sysRPi // if using in RaspberryPi (ARM based system)
 
 #include <iostream>
-#include "controller.cpp"
+#include "src/controller.cpp"
 
 using namespace std;
 

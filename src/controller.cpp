@@ -14,7 +14,7 @@
     Last changed in: 03/11/2018
 */
 
-#include "controller.h"
+#include "../include/controller.h"
 
 Controller::Controller(){
     state = 0;

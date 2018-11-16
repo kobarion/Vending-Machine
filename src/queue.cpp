@@ -18,7 +18,7 @@
 	April 2003.
 */
 
-#include "queue.h"
+#include "../include/queue.h"
 #include <iostream>
 
 using namespace std;
