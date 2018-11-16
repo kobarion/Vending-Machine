@@ -41,15 +41,9 @@ int main(){
 				ad = new Ad();
 				ad -> setMsg(msg);
 				fila.insert(ad->getMsg());
-				delete ad;
-				i++;
 				break;
 			case 2:
-				if (i != 0){
-				  i--;
-				}
-				cout << "propaganda: " << fila.readFirst() << " removida\n" << endl;
-				fila.remove();
+				cout << "propaganda: " << fila.remove() << " removida\n" << endl;
 				break;
 			case 3:
 				sair = true;
