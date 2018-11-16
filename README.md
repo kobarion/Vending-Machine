@@ -20,5 +20,5 @@ EEL7323 - C++ for embedded systems - final project.
 <!-- ![alt text](https://github.com/kobarion/Vending-Machine/blob/master/images/classdiagramv1.png "class diagram") -->
 
 <p align="center"> 
-<img src="https://github.com/kobarion/Vending-Machine/blob/master/images/classdiagramv1.png">
+<img src="https://github.com/kobarion/Vending-Machine/blob/master/images/classdiagramv2.png">
 </p>
