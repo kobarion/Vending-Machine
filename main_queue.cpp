@@ -11,13 +11,16 @@
 	* Ao remover da fila, mostrar mensagem atendendo cliente: X
 
 */
-
+#include <sys/time.h>
+#include <sys/resource.h>
 #include "src/list.cpp"
 #include "ad.cpp"
 
 
 int main(){
 
+
+	struct rusage buf
 	List fila;
 	Ad* ad;
 
@@ -41,12 +44,23 @@ int main(){
 				ad = new Ad();
 				ad -> setMsg(msg);
 				fila.insert(ad->getMsg());
-				break;
+
+				getrusage(RUSAGE_SELF, &buf); 
+				cout << "User seconds without microseconds: " << buf.ru_utime.tv_sec << endl;
+				cout << "Memory used: " << buf.ru_maxrss << endl;
+				cout << "Memory used (unshared memory used for data): " << buf.ru_idrss << endl;
+				cout << "Memory used (unshared memory used for stack space): " << buf.ru_isrss << endl;
+ 				break;
 			case 2:
 				cout << "propaganda: " << fila.remove() << " removida\n" << endl;
 				break;
 			case 3:
 				sair = true;
+				getrusage(RUSAGE_SELF, &buf); 
+				cout << "User seconds without microseconds: " << buf.ru_utime.tv_sec << endl;
+				cout << "Memory used: " << buf.ru_maxrss << endl;
+				cout << "Memory used (unshared memory used for data): " << buf.ru_idrss << endl;
+				cout << "Memory used (unshared memory used for stack space): " << buf.ru_isrss << endl;
 				break;
 			default:
 				cout << "Nao existe essa opcao" << endl;
