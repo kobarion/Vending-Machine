@@ -20,7 +20,7 @@
 int main(){
 
 
-	struct rusage buf
+	struct rusage buf;
 	List fila;
 	Ad* ad;
 
