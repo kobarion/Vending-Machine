@@ -19,8 +19,8 @@
 Controller::Controller(){
     state = 0;
 
-    #ifdef sysX86
-    system = new x86;
+    #ifdef sysPC
+    system = new PC;
     #endif
 
     #ifdef sysRPi

@@ -11,19 +11,16 @@
 	Author: Rodrigo Kobashikawa Rosa <rodrigokrosa@gmail.com>
 	Github: https://github.com/kobarion/Vending-Machine
 
-	Last changed in: 03/11/2018
+	Last changed in: 22/11/2018
 */
 
-#include <iostream>
 #include "../include/interface.h"
 
-using namespace std;
-
-void x86::displayMessage(string msg){
-	cout << msg << " - x86" << endl;
+void PC::displayMessage(string msg){
+	cout << msg << " - PC" << endl;
 }
 
-string x86::inputSystem(){
+string PC::inputSystem(){
 	cin >> inputChoice;
 	switch(inputChoice){
 		case 1:
@@ -51,10 +48,22 @@ string x86::inputSystem(){
 	return input;
 }
 
+string PC::inputAD(){
+	cout << "Mensagem da propaganda (PC): ";
+	cin.ignore();
+	getline(cin, ad);
+	cout << endl;
+	return ad;
+}
+
+/* ------------------------------------------------ */
+
+// Display message on the LCD
 void RPi::displayMessage(string msg){
 	cout << msg << " - RPi" << endl;
 }
 
+// Use button interrupts for the inputs
 string RPi::inputSystem(){
 	cin >> inputChoice;
 	switch(inputChoice){
@@ -81,4 +90,14 @@ string RPi::inputSystem(){
 			break;
 	}
 	return input;
+}
+
+
+//Serial use serial read/write script
+string RPi::inputAD(){
+	cout << "Mensagem da propaganda (RPi): ";
+	cin.ignore();
+	getline(cin, ad);
+	cout << endl;
+	return ad;
 }

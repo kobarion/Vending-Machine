@@ -13,8 +13,8 @@
 */
 
 // Choose which system to use
-//#define sysX86 // if using in windows (x86 based system)
- #define sysRPi // if using in RaspberryPi (ARM based system)
+//#define sysPC // if using in PC (Linux)
+#define sysRPi // if using in RaspberryPi (ARM based system)
 
 #include <iostream>
 #include "src/controller.cpp"
