@@ -6,13 +6,13 @@
 
 [Controller|-state:int;-input:string;-system:Interface*|+Controller();+~Controller();+nextState()]<>->[(Abstract) Interface],
 
-[List|-head:Node*|+List();+~List;+insert();+readFirst();+readHead();+remove();+listAll();],
+[List|-head:Node*;-tail:Node*|+List();+~List;+insert();+remove();+readFirst();+readHead();+readTail();+insertAtEnd();+moveToEnd();+newHead();+listAll();],
 
 [Advertisement|-queue1:List;-queue2:List;-system:Interface*|+addAD();+showAD();+removeAD();],
 
 [List]<-<>[Advertisement],
 
-[Node|-val:string;-next:Node*|+Node();+getVal();+getNext();+setVal();+setNext();],
+[Node|-val:string;+next:Node*|+Node();+getVal();+getNext();+setVal();+setNext();],
 
 [Node]<-<>[List],
 

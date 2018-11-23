@@ -11,7 +11,7 @@
    Author: Rodrigo Kobashikawa Rosa <rodrigokrosa@gmail.com>
    Github: https://github.com/kobarion/Vending-Machine
 
-   Last changed in: 16/11/2018
+   Last changed in: 22/11/2018
 
 */
 
@@ -20,14 +20,14 @@
 // Constructor - initializes the node
 //
 Node::Node(string dat, Node* nxt){
-	val = dat;
+	msg = dat;
 	next = nxt;
 }
 
-// getVal returns the integer value stored in the node
+// getVal returns the string message stored in the node
 //
 string Node::getVal(){
-	return val;
+	return msg;
 }
 
 // getNext returns a pointer for the next node in the linked list
@@ -36,10 +36,10 @@ Node* Node::getNext(){
 	return next;
 }
 
-// setVal stores the integer value in the node
+// setVal stores the string message in the node
 //
 void Node::setVal(string dat){
-	val = dat;
+	msg = dat;
 }
 
 // setNext stores the pointer to the next node in the list in the "next" field

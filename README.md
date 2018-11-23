@@ -2,7 +2,16 @@
 
 EEL7323 - C++ for embedded systems - final project.
 
-## Tabela de estados
+## Download
+
+## Instructions
+
+## Description
+
+
+
+
+<!-- ## Tabela de estados
 
 | Estado Atual |      |           |           | Comandos  |           |      |        |
 |--------------|------|-----------|-----------|-----------|-----------|------|--------|
@@ -17,8 +26,9 @@ EEL7323 - C++ for embedded systems - final project.
 
 ## Diagrama de Classes
 
-<!-- ![alt text](https://github.com/kobarion/Vending-Machine/blob/master/images/classdiagramv2.png "class diagram") -->
+![alt text](https://github.com/kobarion/Vending-Machine/blob/master/images/classdiagramv2.png "class diagram")
 
 <p align="center"> 
 <img src="https://github.com/kobarion/Vending-Machine/blob/master/images/classdiagramv2.png">
 </p>
+ -->

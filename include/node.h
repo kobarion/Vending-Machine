@@ -11,7 +11,7 @@
 	Author: Rodrigo Kobashikawa Rosa <rodrigokrosa@gmail.com>
 	Github: https://github.com/kobarion/Vending-Machine
 
-	Last changed in: 16/11/2018
+	Last changed in: 22/11/2018
 */
 
 
@@ -20,9 +20,9 @@
 using namespace std;
 
 class Node {
-	string val;
-	Node* next;
+	string msg;
 	public: 
+		Node* next;
 		Node(string dat, Node* nxt);
 		string getVal();
 		Node* getNext();

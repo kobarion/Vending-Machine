@@ -19,16 +19,16 @@
 	Author: Rodrigo Kobashikawa Rosa <rodrigokrosa@gmail.com>
 	Github: https://github.com/kobarion/Vending-Machine
 
-	Last changed in: 16/11/2018
+	Last changed in: 22/11/2018
 */
 
 #include "../include/list.h"
 
-List::List() {
+List::List(){
 	head = 0;
 }
 
-List::~List() {
+List::~List(){
 	Node* cursor = head;
 	while(head) {
 		cursor = cursor->getNext();
@@ -38,10 +38,9 @@ List::~List() {
 	head = 0; // Officially empty
 }
 
-void List::insert(string dat) {
+void List::insert(string dat){
 	Node* p = head;
 	Node* q = head;
-
 	if (head == 0)
 		head = new Node(dat, head);
 	else {
@@ -53,15 +52,7 @@ void List::insert(string dat) {
 	}
 }
 
-Node* List::readHead(){
-	return head;
-}
-
-string List::readFirst() {
-	return head->getVal(); 
-}
-
-string List::remove() {
+string List::remove(){
 	string retval = "";
 	if (head != 0){
 		retval = head->getVal();
@@ -72,7 +63,54 @@ string List::remove() {
 	return retval;
 }
 
-void List::listAll() {
+Node* List::readHead(){
+	return head;
+}
+
+string List::readFirst() {
+	return head->getVal(); 
+}
+
+Node* List::readTail(){
+	Node* p = head;
+	Node* q = head;
+	if (head == 0)
+		tail = head;
+	else {
+		while (q != 0) {
+		    p = q;
+		    q = p->getNext();
+		 }
+		 tail = p;
+	}
+	return tail;
+}
+
+void List::insertAtEnd(Node* tail_queue1, Node* head_queue2){
+	if (tail_queue1 == 0){
+		head = head_queue2;
+	} else {
+		tail_queue1 -> setNext(head_queue2);
+	}
+}
+
+void List::moveToEnd(){
+	Node* p = head;
+	Node* q = head;
+	if (head == 0 || head->next == 0) 
+		return;
+	while (q->next != 0)
+		q = q->next;
+	head = p->next;
+	p->next= 0;
+	q->next = p;
+}
+
+void List::newHead(){
+	head = 0;
+}
+
+void List::listAll(){
 	Node* aux = head;
 	while (aux != 0){
 		cout << aux->getVal() << endl;

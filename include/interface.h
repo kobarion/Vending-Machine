@@ -11,33 +11,34 @@
 	Author: Rodrigo Kobashikawa Rosa <rodrigokrosa@gmail.com>
 	Github: https://github.com/kobarion/Vending-Machine
 
-	Last changed in: 03/11/2018
+	Last changed in: 22/11/2018
 */
 
 #include <iostream>
+
 using namespace std;
 
 class Interface {
 	protected:
 		int inputChoice;
 		string input;
+		string ad;
 	public:
-		// template?
 		virtual void displayMessage(string) = 0;
 		virtual string inputSystem() = 0;
-		// virtual void output() = 0;
+		virtual string inputAD() = 0;
 };
 
 class RPi : public Interface {
 	public:
 		void displayMessage(string);
 		string inputSystem();
-		// void output();
+		string inputAD();
 };
 
 class PC : public Interface {
 	public:
 		void displayMessage(string);
 		string inputSystem();
-		// void output();
+		string inputAD();
 };

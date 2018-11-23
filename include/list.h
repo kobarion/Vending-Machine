@@ -19,21 +19,24 @@
 	Author: Rodrigo Kobashikawa Rosa <rodrigokrosa@gmail.com>
 	Github: https://github.com/kobarion/Vending-Machine
 
-	Last changed in: 16/11/2018
+	Last changed in: 22/11/2018
 */
 
 #include "../src/node.cpp"
 
 class List {
-
 	Node* head;
-
+	Node* tail;
 	public:
 		List();
 		~List();
 		void insert(string dat);
+		string remove();
 		string readFirst();
 		Node* readHead();
-		string remove();
+		Node* readTail();
+		void insertAtEnd(Node* tail_queue1, Node* head_queue2);
+		void moveToEnd();
+		void newHead();
 		void listAll();
 };
