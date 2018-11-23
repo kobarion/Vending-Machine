@@ -46,6 +46,7 @@ int main(){
 				break;
 			case 3:
 				sair = true;
+				break;
 			default:
 				cout << "Nao existe essa opcao" << endl;
 				break;
