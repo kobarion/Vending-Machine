@@ -19,7 +19,7 @@ Advertisement::Advertisement(){
 	time(&previousTime);
 	resetRandom = false;
 
-	adCount = 1;
+	adCount = 0;
 
 	srand (time(NULL));
 	randomTime = rand() % 3 + 3;
@@ -37,7 +37,7 @@ Advertisement::~Advertisement(){
     delete system;
 }
 
-void showAD(){
+void Advertisement::showAD(){
 	time(&currentTime);
 	if (resetRandom) {
 		srand (time(NULL));
@@ -46,30 +46,31 @@ void showAD(){
 
 	if (difftime(currentTime,previousTime) > 1) {
 		if (adCount == randomTime) {
-			adCount = 1;
+			adCount = 0;
 			resetRandom = true;
 			time(&previousTime);
 			system->displayMessage(asctime(localtime(&previousTime)));
 		} else {
 			adCount++;
-			system->displayMessage(queue1.readFirst());
+			msg = queue1.readFirst();
+			system->displayMessage(msg);
 			queue1.moveToEnd();
 		}
 	}
 }
 
-void addAD(){
+void Advertisement::addAD(){
 	adMessage = system -> inputAD();
 	queue2.insert(adMessage);
 }
 
-void insertIntoQueue1(){
+void Advertisement::insertIntoQueue1(){
 	head_queue2 = queue2.readHead();
 	tail_queue1 = queue1.readTail();
 	queue1.insertAtEnd(tail_queue1, head_queue2);
 	queue2.newHead();
 }
 
-void removeAD(){
-	queue1.remove();
+string Advertisement::removeAD(){
+	return queue1.remove();
 }

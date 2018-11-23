@@ -40,5 +40,5 @@ class Advertisement {
 		void addAD();
 		void insertIntoQueue1();
 		void showAD();
-		void removeAD();
+		string removeAD();
 };

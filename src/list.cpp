@@ -19,7 +19,9 @@
 	Author: Rodrigo Kobashikawa Rosa <rodrigokrosa@gmail.com>
 	Github: https://github.com/kobarion/Vending-Machine
 
-	Last changed in: 22/11/2018
+	Last changed in: 22
+
+	/11/2018
 */
 
 #include "../include/list.h"

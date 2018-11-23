@@ -92,8 +92,9 @@ int main(){
 				break;
 			case 7:
 				cout << "Primeiro elemento inserido no final da fila 1" << endl;
+				msg = fila1.readFirst();
+				cout << msg << endl;
 				fila1.moveToEnd();
-				fila1.listAll();
 				break;
 			case 8:
 				cout << "Fila 1:" << endl;

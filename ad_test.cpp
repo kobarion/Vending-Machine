@@ -11,10 +11,13 @@ int main(){
 	
     Advertisement ad_controller;
 
+    string msg;
+
     ad_controller.addAD();
     ad_controller.addAD();
     ad_controller.addAD();
-    ad_controller.removeAD();
+    msg = ad_controller.removeAD();
+    cout << msg << endl;
     ad_controller.insertIntoQueue1();
 
     while(1){
