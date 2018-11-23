@@ -11,14 +11,11 @@
 	* Ao remover da fila, mostrar mensagem atendendo cliente: X
 
 */
-#include <sys/time.h>
-#include <sys/resource.h>
 #include "src/list.cpp"
 #include "ad.cpp"
 
 
 int main(){
-
 
 	List fila;
 	Ad* ad;
@@ -49,7 +46,6 @@ int main(){
 				break;
 			case 3:
 				sair = true;
-				break;
 			default:
 				cout << "Nao existe essa opcao" << endl;
 				break;
