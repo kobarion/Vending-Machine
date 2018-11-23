@@ -11,12 +11,14 @@
 	* Ao remover da fila, mostrar mensagem atendendo cliente: X
 
 */
-
+#include <sys/time.h>
+#include <sys/resource.h>
 #include "src/list.cpp"
 #include "ad.cpp"
 
 
 int main(){
+
 
 	List fila;
 	Ad* ad;
@@ -41,7 +43,7 @@ int main(){
 				ad = new Ad();
 				ad -> setMsg(msg);
 				fila.insert(ad->getMsg());
-				break;
+ 				break;
 			case 2:
 				cout << "propaganda: " << fila.remove() << " removida\n" << endl;
 				break;
