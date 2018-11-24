@@ -18,8 +18,8 @@
 Advertisement::Advertisement(){
 	adCount = 0;
 
-	srand (time(NULL));
-	randomTime = rand() % 5 + 3;
+	// srand (time(NULL));
+	randomTime = rand() % 4 + 3;
 
 	#ifdef sysPC
     system = new PC;
@@ -40,11 +40,11 @@ void Advertisement::showAD(){
 
 	if (adCount == randomTime) {
 		adCount = 0;
-		srand (time(NULL));
-		randomTime = rand() % 5 + 3;
+		// srand (time(NULL));
+		randomTime = rand() % 4 + 3;
 		time(&currentTime);
 		system->displayMessage(asctime(localtime(&currentTime)));
-	} else {
+	} else if (adCount != randomTime){
 		msg = queue1.readFirst();
 		system->displayMessage(msg);
 		queue1.moveToEnd();

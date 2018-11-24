@@ -16,9 +16,10 @@ int main(){
     ad_controller.addAD();
     ad_controller.addAD();
     ad_controller.addAD();
+    ad_controller.addAD();
     ad_controller.insertIntoQueue1();
-    msg = ad_controller.removeAD();
-    cout << msg << endl;
+    // msg = ad_controller.removeAD();
+    // cout << msg << endl;
 
     while(1){
 		ad_controller.showAD();
