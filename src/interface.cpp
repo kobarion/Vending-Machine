@@ -50,7 +50,7 @@ string PC::inputSystem(){
 
 string PC::inputAD(){
 	cout << "Mensagem da propaganda (PC): ";
-	cin.ignore();
+	// cin.ignore();
 	getline(cin, ad);
 	cout << endl;
 	return ad;
@@ -96,7 +96,7 @@ string RPi::inputSystem(){
 //Serial use serial read/write script
 string RPi::inputAD(){
 	cout << "Mensagem da propaganda (RPi): ";
-	cin.ignore();
+	// cin.ignore();
 	getline(cin, ad);
 	cout << endl;
 	return ad;

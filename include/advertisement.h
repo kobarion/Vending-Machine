@@ -16,6 +16,8 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <windows.h>
+// #include <unistd.h>
 #include "../src/interface.cpp"
 #include "../src/list.cpp"
 
@@ -29,8 +31,6 @@ class Advertisement {
 	Node* tail_queue1;
 	string adMessage;
 	time_t currentTime;
-	time_t previousTime;
-	bool resetRandom;
 	int adCount;
 	int randomTime;
 	string msg;

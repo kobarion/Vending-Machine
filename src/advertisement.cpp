@@ -16,13 +16,10 @@
 #include "../include/advertisement.h"
 
 Advertisement::Advertisement(){
-	time(&previousTime);
-	resetRandom = false;
-
 	adCount = 0;
 
 	srand (time(NULL));
-	randomTime = rand() % 3 + 3;
+	randomTime = rand() % 5 + 3;
 
 	#ifdef sysPC
     system = new PC;
@@ -38,24 +35,20 @@ Advertisement::~Advertisement(){
 }
 
 void Advertisement::showAD(){
-	time(&currentTime);
-	if (resetRandom) {
-		srand (time(NULL));
-		randomTime = rand() % 3 + 3;
-	}
 
-	if (difftime(currentTime,previousTime) > 1) {
-		if (adCount == randomTime) {
-			adCount = 0;
-			resetRandom = true;
-			time(&previousTime);
-			system->displayMessage(asctime(localtime(&previousTime)));
-		} else {
-			adCount++;
-			msg = queue1.readFirst();
-			system->displayMessage(msg);
-			queue1.moveToEnd();
-		}
+	Sleep(1000);
+
+	if (adCount == randomTime) {
+		adCount = 0;
+		srand (time(NULL));
+		randomTime = rand() % 5 + 3;
+		time(&currentTime);
+		system->displayMessage(asctime(localtime(&currentTime)));
+	} else {
+		msg = queue1.readFirst();
+		system->displayMessage(msg);
+		queue1.moveToEnd();
+		adCount++;
 	}
 }
 
