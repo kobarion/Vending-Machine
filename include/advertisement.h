@@ -16,8 +16,8 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
-#include <windows.h>
-// #include <unistd.h>
+//#include <windows.h>
+ #include <unistd.h>
 #include "../src/interface.cpp"
 #include "../src/list.cpp"
 

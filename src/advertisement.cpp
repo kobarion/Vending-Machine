@@ -22,12 +22,12 @@ Advertisement::Advertisement(){
 	randomTime = rand() % 4 + 3;
 
 	#ifdef sysPC
-    system = new PC;
-    #endif
-
-    #ifdef sysRPi
-    system = new RPi;
-    #endif
+       	system = new PC;
+	#endif
+	
+	#ifdef sysRPi
+   	system = new RPi;
+   	#endif
 }
 
 Advertisement::~Advertisement(){
@@ -36,7 +36,7 @@ Advertisement::~Advertisement(){
 
 void Advertisement::showAD(){
 
-	Sleep(1000);
+	usleep(1000*1000);
 
 	if (adCount == randomTime) {
 		adCount = 0;
