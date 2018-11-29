@@ -25,7 +25,7 @@ Controller::Controller(){
 
     #ifdef sysRPi
     system = new RPi;
-    system -> setupLCD();
+    system -> setup();
     system -> initMSG();
     #endif
 }
@@ -38,7 +38,7 @@ void Controller::nextState(){
     #ifdef sysPC
     system -> initMSG();
     #endif 
-    
+
     input = system -> inputSystem();
 
     switch(state){

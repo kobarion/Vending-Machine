@@ -26,6 +26,7 @@ Advertisement::Advertisement(){
 	
 	#ifdef sysRPi
    	system = new RPi;
+    system -> setup();
    	#endif
 }
 
@@ -41,10 +42,13 @@ void Advertisement::showAD(){
 		adCount = 0;
 		randomTime = rand() % 4 + 3;
 		time(&currentTime);
-		system->displayMessage(asctime(localtime(&currentTime)));
+		tm_info = localtime(&timer);
+        strftime(buffer_date, 26, "Date: %m/%d/%Y", tm_info);
+        strftime(buffer_time, 26, "Time: %H:%M:%S", tm_info);
+		system->displayDateTime(buffer_time, buffer_date);
 	} else if (adCount != randomTime){
 		msg = queue1.readFirst();
-		system->displayMessage(msg);
+		system->displayAD(msg);
 		queue1.moveToEnd();
 		adCount++;
 	}

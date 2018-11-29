@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <time.h>
+#include <stdio.h>
 #include <stdlib.h>
 //#include <windows.h>
  #include <unistd.h>
@@ -34,6 +35,8 @@ class Advertisement {
 	int adCount;
 	int randomTime;
 	string msg;
+	char buffer_date[26];
+    char buffer_time[26];
 	public: 	
 		Advertisement();
 		~Advertisement();

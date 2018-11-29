@@ -15,6 +15,7 @@
 */
 
 #include <iostream>
+#include <string>
 #ifdef sysRPi
 #include <wiringPi.h>
 #include <lcd.h>
@@ -26,15 +27,17 @@ class Interface {
 		int inputChoice;
 		string input;
 		string ad;
+		string line[3];
 	public:
 		virtual void setup() = 0;
-		virtual void displayMessage(string) = 0;
 		virtual void initMSG() = 0;
 		virtual void creditMSG(int) = 0;
 		virtual void autoReturnMSG(int) = 0;
 		virtual void insufficientMSG() = 0;
 		virtual void outputMSG(int) = 0;
 		virtual void returnMSG(int) = 0;
+		virtual void displayAD(string) = 0;
+		virtual void displayDateTime(string, string) = 0;
 		virtual string inputSystem() = 0;
 		virtual string inputAD() = 0;
 };
@@ -51,9 +54,10 @@ class RPi : public Interface {
 		int lcd;
 	public:
 		void setup();
-		void displayMessage(string);
 		string inputSystem();
 		string inputAD();
+		void displayAD(string);
+		void displayDateTime(string, string);
 		void initMSG();
 		void creditMSG(int);
 		void autoReturnMSG(int);
@@ -66,9 +70,10 @@ class RPi : public Interface {
 class PC : public Interface {
 	public:
 		void setup();
-		void displayMessage(string);
 		string inputSystem();
 		string inputAD();
+		void displayAD(string);
+		void displayDateTime(string, string);
 		void initMSG();
 		void creditMSG(int);
 		void autoReturnMSG(int);

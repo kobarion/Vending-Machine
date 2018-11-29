@@ -19,8 +19,8 @@
 void PC::setup(){
 }
 
-void PC::displayMessage(string msg){
-	cout << msg << " - PC" << endl;
+void PC::displayAD(string msg){
+	cout << msg << endl;
 }
 
 void PC::initMSG(){
@@ -83,10 +83,18 @@ string PC::inputSystem(){
 
 string PC::inputAD(){
 	cout << "Mensagem da propaganda (PC): ";
-	cin.ignore();
 	getline(cin, ad);
 	cout << endl;
 	return ad;
+}
+
+void PC::displayAD(string msg){
+	cout << msg << endl;
+}
+
+void PC::displayDateTime(string time, string date){
+	cout << date << endl;
+	cout << time << endl;
 }
 
 /* ------------------------------------------------ */
@@ -94,11 +102,6 @@ string PC::inputAD(){
 void RPi::setup(){
     wiringPiSetup();
     lcd = lcdInit (ROW, COL, 4, LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7, 0, 0, 0, 0);
-}
-
-// Display message on the LCD
-void RPi::displayMessage(string msg){
-	cout << msg << " - RPi" << endl;
 }
 
 void RPi::initMSG(){
@@ -262,9 +265,31 @@ string RPi::inputSystem(){
 //Serial use serial read/write script
 string RPi::inputAD(){
 	cout << "Mensagem da propaganda (RPi): ";
-	cin.ignore();
 	getline(cin, ad);
 	cout << endl;
 	return ad;
 }
+
+void RPi::displayAD(string msg){
+	lcdClear(lcd);
+	int j = 0;
+	for (int i = 0; i < msg.length(); i += 20) {
+	    line[j] = msg.substr(i, 20);
+	    j++;
+	}
+
+	for (int k = 0; k < 4; k++){
+		lcdPosition(lcd, 0, k);
+		lcdPuts(lcd, line[k]);
+	}
+}
+
+void RPi::displayDateTime(string time, string date){
+	lcdClear(lcd);
+	lcdPosition(lcd, 2, 1);
+	lcdPuts(lcd, date);	
+	lcdPosition(lcd, 2, 2);
+	lcdPuts(lcd, time);
+}
+
 #endif
