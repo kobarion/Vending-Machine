@@ -25,7 +25,7 @@ Controller::Controller(){
 
     #ifdef sysRPi
     system = new RPi;
-    system -> setupLCD();
+    system -> setup();
     system -> initMSG();
     #endif
 }
