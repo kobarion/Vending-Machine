@@ -17,7 +17,8 @@
 
 Advertisement::Advertisement(){
 	adCount = 0;
-
+	
+	srand(time(NULL));
 	randomTime = rand() % 4 + 3;
 
 	#ifdef sysPC
@@ -40,6 +41,7 @@ void Advertisement::showAD(){
 
 	if (adCount == randomTime) {
 		adCount = 0;
+		srand(time(NULL));
 		randomTime = rand() % 4 + 3;
 		time(&currentTime);
 		tm_info = localtime(&currentTime);

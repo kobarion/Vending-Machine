@@ -269,7 +269,7 @@ string RPi::inputAD(){
 void RPi::displayAD(string msg){
 	lcdClear(lcd);
 	int j = 0;
-	string line[4] = NULL;
+	string line[4];
 	for (int i = 0; i < msg.length(); i += 20) {
 	    line[j] = msg.substr(i, 20);
 	    j++;
