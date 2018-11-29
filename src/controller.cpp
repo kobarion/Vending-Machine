@@ -25,6 +25,7 @@ Controller::Controller(){
 
     #ifdef sysRPi
     system = new RPi;
+    system -> setupLCD();
     #endif
 }
 
@@ -34,7 +35,7 @@ Controller::~Controller(){
 
 void Controller::nextState(){
 
-    system -> displayMessage("\n1. M025    2. M050    3. M100\n4. DEV    5. ETIRPS    6. MEETS\n");
+    system -> initMSG();
 
     input = system -> inputSystem();
 
@@ -42,177 +43,177 @@ void Controller::nextState(){
         case 0: 
             if (input == "nada") state = 0;
             else if (input == "dev") {
-                system -> displayMessage("Devolve 0 creditos.");
+                system -> returnMSG(0);
                 state = 0;
             }
             else if (input == "etirps") {
-                system -> displayMessage("Creditos insuficientes."); 
+                system -> insufficientMSG(); 
             }
             else if (input == "meets"){
-            	system -> displayMessage("Creditos insuficientes."); 
+            	system -> insufficientMSG(); 
             }
             else if (input == "m025") {
-                system -> displayMessage("25 creditos."); 
+                system -> creditMSG(25); 
                 state = 25;
             }
             else if (input == "m050") {
-                system -> displayMessage("50 creditos."); 
+                system -> creditMSG(50); 
                 state = 50;
             }
             else if (input == "m100") {
-                system -> displayMessage("100 creditos."); 
+                system -> creditMSG(100); 
                 state = 100;
             }
             break;
         case 25:
             if (input == "nada") state = 25;
             else if (input == "dev") {
-                system -> displayMessage("Devolve 25 creditos."); 
+                system -> returnMSG(25); 
                 state = 0;
             }
             else if (input == "etirps") {
-                system -> displayMessage("Creditos insuficientes."); 
+                system -> insufficientMSG(); 
             }
             else if (input == "meets"){
-            	system -> displayMessage("Creditos insuficientes."); 
+            	system -> insufficientMSG(); 
             }
             else if (input == "m025"){
-                system -> displayMessage("50 creditos."); 
+                system -> creditMSG(50); 
                 state = 50;
             }
             else if (input == "m050") {
-                system -> displayMessage("75 creditos."); 
+                system -> creditMSG(75); 
                 state = 75;
             }
             else if (input == "m100") {
-                system -> displayMessage("125 creditos."); 
+                system -> creditMSG(125); 
                 state = 125;
             }
             break;
         case 50:
             if (input == "nada") state = 50;
             else if (input == "dev") {
-                system -> displayMessage("Devolve 50 creditos."); 
+                system -> returnMSG(50); 
                 state = 0;
             }
             else if (input == "etirps") {
-                system -> displayMessage("Creditos insuficientes."); 
+                system -> insufficientMSG(); 
             }
             else if (input == "meets"){
-            	system -> displayMessage("Creditos insuficientes."); 
+            	system -> insufficientMSG(); 
             }
             else if (input == "m025") {
-                system -> displayMessage("75 creditos."); 
+                system -> creditMSG(75); 
                 state = 75;
             }
             else if (input == "m050") {
-                system -> displayMessage("100 creditos."); 
+                system -> creditMSG(100); 
                 state = 100;
             }
             else if (input == "m100") {
-                system -> displayMessage("150 creditos."); 
+                system -> creditMSG(150); 
                 state = 150;
             }
             break;
         case 75:
             if (input == "nada") state = 75;
             else if (input == "dev") {
-                system -> displayMessage("Devolve 75 creditos."); 
+                system -> returnMSG(75); 
                 state = 0;
             }
             else if (input == "etirps") {
-                system -> displayMessage("Creditos insuficientes."); 
+                system -> insufficientMSG(); 
             }
             else if (input == "meets"){
-            	system -> displayMessage("Creditos insuficientes."); 
+            	system -> insufficientMSG(); 
             }
             else if (input == "m025") {
-                system -> displayMessage("100 creditos."); 
+                system -> creditMSG(100); 
                 state = 100;
             }
             else if (input == "m050") {
-                system -> displayMessage("125 creditos."); 
+                system -> creditMSG(125); 
                 state = 125;
             }
             else if (input == "m100") {
-                system -> displayMessage("150 creditos. Devolve 25."); 
+                system -> autoReturnMSG(25); 
                 state = 150;
             }      
             break;
         case 100:
             if (input == "nada") state = 100;
             else if (input == "dev") {
-            	system -> displayMessage("Devolve 100 creditos."); 
+            	system -> returnMSG(100); 
                 state = 0;
             }
             else if (input == "etirps") {
-                system -> displayMessage("Creditos insuficientes."); 
+                system -> insufficientMSG(); 
             }
             else if (input == "meets"){
-            	system -> displayMessage("Creditos insuficientes."); 
+            	system -> insufficientMSG(); 
             }
             else if (input == "m025") {
             	system -> displayMessage("125 creditos."); 
             	state = 125;
             }
             else if (input == "m050") {
-            	system -> displayMessage("150 creditos."); 
+            	system -> creditMSG(150); 
             	state = 150;
             }
             else if (input == "m100") {
-                system -> displayMessage("150 creditos. Devolve 50."); 
+                system -> autoReturnMSG(50); 
                 state = 150;
             }
             break;
         case 125:
             if (input == "nada") state = 125;
             else if (input == "dev") {
-            	system -> displayMessage("Devolve 125 creditos."); 
+            	system -> returnMSG(125); 
                 state = 0;
             }
             else if (input == "etirps") {
-                system -> displayMessage("Creditos insuficientes."); 
+                system -> insufficientMSG(); 
             }
             else if (input == "meets"){
-            	system -> displayMessage("Creditos insuficientes."); 
+            	system -> insufficientMSG(); 
             }
             else if (input == "m025") {
-            	system -> displayMessage("150 creditos."); 
+            	system -> creditMSG(150); 
             	state = 150;
             }
             else if (input == "m050") {
-                system -> displayMessage("150 creditos. Devolve 25.");             	
+                system -> autoReturnMSG(25);             	
                 state = 150;
             }
             else if (input == "m100") {
-                system -> displayMessage("150 creditos. Devolve 50."); 
+                system -> autoReturnMSG(75); 
                 state = 150;
             }
             break;
         case 150:
             if (input == "nada") state = 150;
             else if (input == "dev") {
-            	system -> displayMessage("Devolve 150 creditos.");           	
+            	system -> returnMSG(150);           	
                 state = 0;
             }
             else if (input == "meets") {
-            	system -> displayMessage("-MEET-");
+            	system -> outputMSG(1);
                 state = 0;
             }
             else if (input == "etirps") {
-            	system -> displayMessage("-ETIRPS-");
+            	system -> outputMSG(0);
                 state = 0;
             }            
             else if (input == "m025") {
-            	system -> displayMessage("150 creditos. Devolve 25."); 
+            	system -> autoReturnMSG(25); 
                 state = 150;
             }
             else if (input == "m050") {
-            	system -> displayMessage("150 creditos. Devolve 50.");             	
+            	system -> autoReturnMSG(50);             	
                 state = 150;
             }
             else if (input == "m100") {
-            	system -> displayMessage("150 creditos. Devolve 100."); 
+            	system -> autoReturnMSG(100); 
                 state = 150;
             }
             break;

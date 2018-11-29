@@ -15,7 +15,8 @@
 */
 
 #include <iostream>
-
+// #include <wiringPi>
+// #include <lcd.h>
 using namespace std;
 
 class Interface {
@@ -25,15 +26,37 @@ class Interface {
 		string ad;
 	public:
 		virtual void displayMessage(string) = 0;
+		virtual void initMSG() = 0;
+		virtual void creditMSG(int) = 0;
+		virtual void autoReturnMSG(int) = 0;
+		virtual void insufficientMSG() = 0;
+		virtual void outputMSG(int) = 0;
+		virtual void returnMSG(int) = 0;
 		virtual string inputSystem() = 0;
 		virtual string inputAD() = 0;
 };
 
 class RPi : public Interface {
+		static const int ROW=4;
+		static const int COL=20;
+		static const int LCD_RS=11;
+		static const int LCD_E=10;
+		static const int LCD_D4=25;
+		static const int LCD_D5=24;
+		static const int LCD_D6=23;
+		static const int LCD_D7=22;
+		int lcd;
 	public:
+		void setup();
 		void displayMessage(string);
 		string inputSystem();
 		string inputAD();
+		void initMSG();
+		void creditMSG(int);
+		void autoReturnMSG(int);
+		void insufficientMSG();
+		void outputMSG(int);
+		void returnMSG(int);
 };
 
 class PC : public Interface {
@@ -41,4 +64,10 @@ class PC : public Interface {
 		void displayMessage(string);
 		string inputSystem();
 		string inputAD();
+		void initMSG();
+		void creditMSG(int);
+		void autoReturnMSG(int);
+		void insufficientMSG();
+		void outputMSG(int);
+		void returnMSG(int);
 };

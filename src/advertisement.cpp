@@ -18,11 +18,10 @@
 Advertisement::Advertisement(){
 	adCount = 0;
 
-	// srand (time(NULL));
 	randomTime = rand() % 4 + 3;
 
 	#ifdef sysPC
-       	system = new PC;
+   	system = new PC;
 	#endif
 	
 	#ifdef sysRPi
@@ -40,7 +39,6 @@ void Advertisement::showAD(){
 
 	if (adCount == randomTime) {
 		adCount = 0;
-		// srand (time(NULL));
 		randomTime = rand() % 4 + 3;
 		time(&currentTime);
 		system->displayMessage(asctime(localtime(&currentTime)));
