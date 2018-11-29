@@ -27,7 +27,7 @@ class Interface {
 		int inputChoice;
 		string input;
 		string ad;
-		string line[3];
+		string line[4];
 		const char* aux_char;
 	public:
 		virtual void setup() = 0;
