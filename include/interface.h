@@ -28,6 +28,7 @@ class Interface {
 		string input;
 		string ad;
 		string line[3];
+		const char* aux_char;
 	public:
 		virtual void setup() = 0;
 		virtual void initMSG() = 0;

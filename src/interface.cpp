@@ -275,17 +275,20 @@ void RPi::displayAD(string msg){
 	}
 
 	for (int k = 0; k < 4; k++){
+		aux_char = line[k].c_str();
 		lcdPosition(lcd, 0, k);
-		lcdPuts(lcd, line[k]);
+		lcdPuts(lcd, aux_char);
 	}
 }
 
 void RPi::displayDateTime(string time, string date){
+	const char* aux_time = time.c_str();
+	const char* aux_date = date.c_str();
 	lcdClear(lcd);
 	lcdPosition(lcd, 2, 1);
-	lcdPuts(lcd, date);	
+	lcdPuts(lcd, aux_date);	
 	lcdPosition(lcd, 2, 2);
-	lcdPuts(lcd, time);
+	lcdPuts(lcd, aux_time);
 }
 
 #endif
