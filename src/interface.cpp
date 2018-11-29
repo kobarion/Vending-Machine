@@ -269,13 +269,14 @@ string RPi::inputAD(){
 void RPi::displayAD(string msg){
 	lcdClear(lcd);
 	int j = 0;
+	string line[4] = NULL;
 	for (int i = 0; i < msg.length(); i += 20) {
 	    line[j] = msg.substr(i, 20);
 	    j++;
 	}
 
 	for (int k = 0; k < 4; k++){
-		aux_char = line[k].c_str();
+		const char* aux_char = line[k].c_str();
 		lcdPosition(lcd, 0, k);
 		lcdPuts(lcd, aux_char);
 	}
