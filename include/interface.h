@@ -25,7 +25,7 @@ class Interface {
 		string input;
 		string ad;
 	public:
-		void setup() = 0;
+		virtual void setupLCD() = 0;
 		virtual void displayMessage(string) = 0;
 		virtual void initMSG() = 0;
 		virtual void creditMSG(int) = 0;
@@ -48,7 +48,7 @@ class RPi : public Interface {
 		static const int LCD_D7=22;
 		int lcd;
 	public:
-		void setup();
+		void setupLCD();
 		void displayMessage(string);
 		string inputSystem();
 		string inputAD();

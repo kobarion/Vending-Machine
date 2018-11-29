@@ -110,7 +110,7 @@ void RPi::creditMSG(int amount){
 	lcdClear(lcd);
 	lcdPosition(lcd, 0, 1);
 	lcdPuts(lcd, "   AMOUNT: ");
-	switch(int){
+	switch(amount){
 		case 0:
 			lcdPosition(lcd, 11, 1);
 			lcdPuts(lcd, "0.00");
@@ -152,15 +152,19 @@ void RPi::autoReturnMSG(int amount){
 		case 25:
 			lcdPosition(lcd, 11, 2);
 			lcdPuts(lcd, "0.25");
+			break;
 		case 50:
 			lcdPosition(lcd, 11, 2);
 			lcdPuts(lcd, "0.50");
+			break;
 		case 75:
 			lcdPosition(lcd, 11, 2);
 			lcdPuts(lcd, "0.75");
+			break;
 		case 100:
 			lcdPosition(lcd, 11, 2);
 			lcdPuts(lcd, "1.00");
+			break;
 	}
 }
 

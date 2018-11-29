@@ -26,6 +26,7 @@ Controller::Controller(){
     #ifdef sysRPi
     system = new RPi;
     system -> setupLCD();
+    system -> initMSG();
     #endif
 }
 
@@ -34,8 +35,6 @@ Controller::~Controller(){
 }
 
 void Controller::nextState(){
-
-    system -> initMSG();
 
     input = system -> inputSystem();
 
@@ -153,7 +152,7 @@ void Controller::nextState(){
             	system -> insufficientMSG(); 
             }
             else if (input == "m025") {
-            	system -> displayMessage("125 creditos."); 
+            	system -> creditMSG(125);  
             	state = 125;
             }
             else if (input == "m050") {
