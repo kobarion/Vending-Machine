@@ -15,8 +15,10 @@
 */
 
 #include <iostream>
+#ifdef sysRPi
 #include <wiringPi.h>
 #include <lcd.h>
+#endif
 using namespace std;
 
 class Interface {
@@ -25,7 +27,7 @@ class Interface {
 		string input;
 		string ad;
 	public:
-		virtual void setupLCD() = 0;
+		virtual void setup() = 0;
 		virtual void displayMessage(string) = 0;
 		virtual void initMSG() = 0;
 		virtual void creditMSG(int) = 0;
@@ -36,7 +38,7 @@ class Interface {
 		virtual string inputSystem() = 0;
 		virtual string inputAD() = 0;
 };
-
+#ifdef sysRPi
 class RPi : public Interface {
 		static const int ROW=4;
 		static const int COL=20;
@@ -48,7 +50,7 @@ class RPi : public Interface {
 		static const int LCD_D7=22;
 		int lcd;
 	public:
-		void setupLCD();
+		void setup();
 		void displayMessage(string);
 		string inputSystem();
 		string inputAD();
@@ -59,9 +61,11 @@ class RPi : public Interface {
 		void outputMSG(int);
 		void returnMSG(int);
 };
+#endif
 
 class PC : public Interface {
 	public:
+		void setup();
 		void displayMessage(string);
 		string inputSystem();
 		string inputAD();

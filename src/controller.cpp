@@ -35,7 +35,10 @@ Controller::~Controller(){
 }
 
 void Controller::nextState(){
-
+    #ifdef sysPC
+    system -> initMSG();
+    #endif 
+    
     input = system -> inputSystem();
 
     switch(state){

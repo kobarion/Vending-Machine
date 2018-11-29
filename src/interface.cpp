@@ -16,6 +16,9 @@
 
 #include "../include/interface.h"
 
+void PC::setup(){
+}
+
 void PC::displayMessage(string msg){
 	cout << msg << " - PC" << endl;
 }
@@ -87,8 +90,8 @@ string PC::inputAD(){
 }
 
 /* ------------------------------------------------ */
-
-void RPi::setupLCD(){
+#ifdef sysRPi
+void RPi::setup(){
     wiringPiSetup();
     lcd = lcdInit (ROW, COL, 4, LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7, 0, 0, 0, 0);
 }
@@ -264,3 +267,4 @@ string RPi::inputAD(){
 	cout << endl;
 	return ad;
 }
+#endif
