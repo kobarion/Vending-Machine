@@ -15,8 +15,8 @@
 */
 
 #include <iostream>
-// #include <wiringPi>
-// #include <lcd.h>
+#include <wiringPi.h>
+#include <lcd.h>
 using namespace std;
 
 class Interface {
@@ -25,6 +25,7 @@ class Interface {
 		string input;
 		string ad;
 	public:
+		void setup() = 0;
 		virtual void displayMessage(string) = 0;
 		virtual void initMSG() = 0;
 		virtual void creditMSG(int) = 0;
