@@ -32,11 +32,12 @@ class Advertisement {
 	Node* tail_queue1;
 	string adMessage;
 	time_t currentTime;
+	struct tm* tm_info;
 	int adCount;
 	int randomTime;
 	string msg;
 	char buffer_date[26];
-    char buffer_time[26];
+  	char buffer_time[26];
 	public: 	
 		Advertisement();
 		~Advertisement();

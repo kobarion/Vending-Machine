@@ -88,10 +88,6 @@ string PC::inputAD(){
 	return ad;
 }
 
-void PC::displayAD(string msg){
-	cout << msg << endl;
-}
-
 void PC::displayDateTime(string time, string date){
 	cout << date << endl;
 	cout << time << endl;
