@@ -22,6 +22,9 @@
 	Last changed in: 22/11/2018
 */
 
+#ifndef LIST_H
+#define LIST_H
+
 #include "../src/node.cpp"
 
 class List {
@@ -40,3 +43,5 @@ class List {
 		void newHead();
 		void listAll();
 };
+
+#endif

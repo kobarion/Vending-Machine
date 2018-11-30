@@ -11,8 +11,10 @@
 	Author: Rodrigo Kobashikawa Rosa <rodrigokrosa@gmail.com>
 	Github: https://github.com/kobarion/Vending-Machine
 
-	Last changed in: 22/11/2018
+	Last changed in: 29/11/2018
 */
+#ifndef INTERFACE_H
+#define INTERFACE_H
 
 #include <iostream>
 #include <string>
@@ -80,3 +82,5 @@ class PC : public Interface {
 		void outputMSG(int);
 		void returnMSG(int);
 };
+
+#endif

@@ -13,6 +13,8 @@
 
 	Last changed in: 03/11/2018
 */
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
 
 #include <iostream>
 #include "../src/interface.cpp"
@@ -27,3 +29,5 @@ class Controller {
         ~Controller();
         void nextState();
 };
+
+#endif

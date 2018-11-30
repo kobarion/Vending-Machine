@@ -14,6 +14,8 @@
 	Last changed in: 22/11/2018
 */
 
+#ifndef NODE_H
+#define NODE_H
 
 #include <iostream>
 
@@ -29,3 +31,5 @@ class Node {
 		void setVal(string dat);
 		void setNext(Node* nxt);
 };
+
+#endif

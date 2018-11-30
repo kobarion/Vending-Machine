@@ -10,22 +10,25 @@
 	Author: Rodrigo Kobashikawa Rosa <rodrigokrosa@gmail.com>
 	Github: https://github.com/kobarion/Vending-Machine
 
-	Last changed in: 22/11/2018
+	Last changed in: 29/11/2018
 */
+
+#ifndef ADVERTISEMNT_H
+#define ADVERTISEMNT_H
 
 #include <iostream>
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 //#include <windows.h>
- #include <unistd.h>
-#include "../src/interface.cpp"
+#include <unistd.h>
+// #include "../src/interface.cpp" // comment for using thread
 #include "../src/list.cpp"
 
 using namespace std;
 
 class Advertisement {
-	Interface* system;
+	// Interface* adSystem; //comment for using thread
 	List queue1;
 	List queue2;
 	Node* head_queue2;
@@ -46,3 +49,5 @@ class Advertisement {
 		void showAD();
 		string removeAD();
 };
+
+#endif

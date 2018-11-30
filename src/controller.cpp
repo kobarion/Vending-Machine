@@ -11,7 +11,7 @@
     Author: Rodrigo Kobashikawa Rosa <rodrigokrosa@gmail.com>
     Github: https://github.com/kobarion/Vending-Machine
 
-    Last changed in: 03/11/2018
+    Last changed in: 29/11/2018
 */
 
 #include "../include/controller.h"
