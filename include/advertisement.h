@@ -22,13 +22,13 @@
 #include <stdlib.h>
 //#include <windows.h>
 #include <unistd.h>
-// #include "../src/interface.cpp" // comment for using thread
+#include "../src/interface.cpp" // comment for using thread
 #include "../src/list.cpp"
 
 using namespace std;
 
 class Advertisement {
-	// Interface* adSystem; //comment for using thread
+	Interface* adSystem; //comment for using thread
 	List queue1;
 	List queue2;
 	Node* head_queue2;
