@@ -23,16 +23,28 @@
 
 using namespace std;
 
+bool flag = true;
+char key;
+
 Controller vendingMachine;
 Advertisement ad_controller;
 
 void ad(){
-	while(1){
+	while(1  && flag){
 		ad_controller.showAD();
     }
 }
+void input(){
+	while(1 && flag){
+		cin >> key;
+		if (key == 'c'){
+			flag = false;
+		}
+	}
+}
 
 int main(){
+
 	ad_controller.addAD();
     ad_controller.addAD();
     ad_controller.addAD();
@@ -40,12 +52,17 @@ int main(){
     ad_controller.insertIntoQueue1();
 
 	thread t1(ad);
+	thread t2(input);
 
-    while(1){
-		vendingMachine.nextState();
-    }
+	while(1){
+		if (!flag){
+			vendingMachine.nextState();	
+		}
+		usleep(100*1000);
+	}
 
     t1.join();
+    t2.join();
 
     return 0;
 }

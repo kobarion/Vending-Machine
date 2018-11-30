@@ -10,9 +10,7 @@ using namespace std;
 int main(){
 	
     Advertisement ad_controller;
-
-    string msg;
-
+    
     ad_controller.addAD();
     ad_controller.addAD();
     ad_controller.addAD();

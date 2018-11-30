@@ -21,23 +21,23 @@ Advertisement::Advertisement(){
 	srand(time(NULL));
 	randomTime = rand() % 4 + 3;
 
-	 #ifdef sysPC				//comment for using thread
-	 adSystem = new PC;
-	 #endif
+	 // #ifdef sysPC				//comment for using thread
+	 // adSystem = new PC;
+	 // #endif
 	
-	 #ifdef sysRPi
-	 adSystem = new RPi;
-	 adSystem -> setup();
-	 #endif					//comment for using thread
+	 // #ifdef sysRPi
+	 // adSystem = new RPi;
+	 // adSystem -> setup();
+	 // #endif					//comment for using thread
 }
 
 Advertisement::~Advertisement(){
-     delete adSystem;			//comment for using thread
+     // delete adSystem;			//comment for using thread
 }
 
 void Advertisement::showAD(){
 
-	usleep(5000*1000);
+	usleep(1000*1000);
 
 	if (adCount == randomTime) {
 		adCount = 0;
@@ -47,23 +47,23 @@ void Advertisement::showAD(){
 		tm_info = localtime(&currentTime);
 		strftime(buffer_date, 26, "Date: %m/%d/%Y", tm_info);
 		strftime(buffer_time, 26, "Time: %H:%M:%S", tm_info);
-		adSystem->displayDateTime(buffer_time, buffer_date);  //comment for using thread	 
-		//cout << buffer_date << endl; 			// thread
-		//cout << buffer_time << endl; 			// thread
+		// adSystem->displayDateTime(buffer_time, buffer_date);  //comment for using thread	 
+		cout << buffer_date << endl; 			// thread
+		cout << buffer_time << endl; 			// thread
 	} else if (adCount != randomTime){
 		msg = queue1.readFirst();
-		adSystem->displayAD(msg);				// comment for using thread
-		//cout << msg << endl;					//thread
+		// adSystem->displayAD(msg);				// comment for using thread
+		cout << msg << endl;					//thread
 		queue1.moveToEnd();
 		adCount++;
 	}
 }
 
 void Advertisement::addAD(){
-	adMessage = adSystem -> inputAD();		// comment for using threads
-	//cout << "Mensagem da propaganda (PC): "; 	// thread
-	//getline(cin, adMessage);			// thread
-	//cout << endl;				 	// thread
+	// adMessage = adSystem -> inputAD();		// comment for using threads
+	cout << "Mensagem da propaganda (PC): "; 	// thread
+	getline(cin, adMessage);			// thread
+	cout << endl;				 	// thread
 	queue2.insert(adMessage);
 }
 
