@@ -64,7 +64,11 @@ void Advertisement::addAD(){
 	cout << "Mensagem da propaganda (PC): "; 	// thread
 	getline(cin, adMessage);			// thread
 	cout << endl;				 	// thread
-	queue2.insert(adMessage);
+	try{
+		queue2.insert(adMessage);
+	} catch(bad_alloc erro){
+		cout << "\nExcessao " << erro.what() << endl;
+	}
 }
 
 void Advertisement::insertIntoQueue1(){
