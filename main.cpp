@@ -46,10 +46,10 @@ void input(){
 int main(){
 
 	ad_controller.addAD();
-    ad_controller.addAD();
-    ad_controller.addAD();
-    ad_controller.addAD();
-    ad_controller.insertIntoQueue1();
+	ad_controller.addAD();
+	ad_controller.addAD();
+	ad_controller.addAD();
+	ad_controller.insertIntoQueue1();
 
 	thread t1(ad);
 	thread t2(input);
@@ -59,6 +59,7 @@ int main(){
 			vendingMachine.nextState();	
 		}
 		usleep(100*1000);
+
 	}
 
     t1.join();

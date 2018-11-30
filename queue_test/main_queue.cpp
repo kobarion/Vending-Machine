@@ -24,13 +24,10 @@
 */
 
 #include "../src/list.cpp"
-#include "ad.cpp"
-
 
 int main(){
 
 	List fila1, fila2;
-	Ad* ad;
 
 	Node* head_queue2;
 	Node* tail_queue1;
@@ -58,18 +55,14 @@ int main(){
 				cin.ignore();
 				getline(cin, msg);
 				cout << endl;
-				ad = new Ad();
-				ad -> setMsg(msg);
-				fila1.insert(ad->getMsg());
+				fila1.insert(msg);
  				break;
  			case 2:
 				cout << "Mensagem da propaganda: ";
 				cin.ignore();
 				getline(cin, msg);
 				cout << endl;
-				ad = new Ad();
-				ad -> setMsg(msg);
-				fila2.insert(ad->getMsg());
+				fila2.insert(msg);
  				break;
 			case 3:
 				cout << "propaganda: " << fila1.remove() << " removida\n" << endl;
